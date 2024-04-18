@@ -1,0 +1,34 @@
+data = {
+    "District1": {
+        "Mandal1": {
+            "Village1": ["1/A57"],#Survey numbers data
+            "Village2": ["79"]#like this we can input data for all villages of Mandal1 of District1
+        },
+        "Mandal2": {
+            "Village3": ["",""],
+            "Village4": [""]
+        }#like this we can input data for all mandals of District1
+    },
+    "District2": {
+        "Mandal3": {
+            "Village5": ["",""],
+            "Village6": [""]
+        },
+        "Mandal4": {
+            "Village7": ["", ""],
+            "Village8": ["", "", ""]
+        }#similarly like this we can input data for all Districts.
+    }
+}
+def get_survey_numbers(D,M,V):
+    try:
+        surveys = data[D][M][V]
+        return surveys
+    except KeyError:
+        return "Survey numbers not found for the provided inputs."#if the try part of code fails to execute then this part will execute.
+
+D = input("Enter District : ")
+M = input("Enter Mandal : ")
+V = input("Enter Village : ")
+result = get_survey_numbers(D,M,V)
+print("Survey numbers:", result)
